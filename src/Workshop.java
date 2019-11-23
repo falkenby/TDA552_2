@@ -90,7 +90,7 @@ public class Workshop implements Storage {
      * @param point
      */
 
-    private void setCarsPosition(Point2D.Double point) {
+    protected void setCarsPosition(Point2D.Double point) {
 
         for (Car c : getCars()) {
             c.point.setLocation(point);
