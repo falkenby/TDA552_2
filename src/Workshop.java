@@ -5,14 +5,14 @@ public class Workshop implements Storage {
 
     private int storageMax; // Storage max of the workshop
     protected ArrayList<Car> cars; // An array for the cars to be in
-    private Type carType; // To make it easier for the workshop to identify the different cars
+    private typeOfCar carType; // To make it easier for the workshop to identify the different cars
 
     /**
      * A constructor to initialize the workshop
      * @param storageMax
      * @param carType
      */
-    public Workshop(int storageMax, Type carType) {
+    public Workshop(int storageMax, typeOfCar carType) {
 
         this.storageMax = storageMax;
         this.cars = new ArrayList<Car>(storageMax);
@@ -22,9 +22,10 @@ public class Workshop implements Storage {
     /**
      * An enum method for the different cars
      */
-    public enum Type {
+    public enum typeOfCar {
         VOLVO,
         SAAB,
+        SCANIA,
         ALL;
     }
 
@@ -53,7 +54,7 @@ public class Workshop implements Storage {
                 c.state = Transport.StateEngine.TRANSPORTING;
                 break;
             case SAAB:
-                if (c.type != Type.SAAB) {
+                if (c.type != typeOfCar.SAAB) {
                     throw new RuntimeException("Sorry! This workshop only accepts SAAB cars!");
                 }
                 cars.add(c);
@@ -61,7 +62,7 @@ public class Workshop implements Storage {
                 c.state = Transport.StateEngine.TRANSPORTING;
                 break;
             case VOLVO:
-                if (c.type != Type.VOLVO) {
+                if (c.type != typeOfCar.VOLVO) {
                     throw new RuntimeException("Sorry! This workshop only accepts VOLVO cars!");
                 }
                 cars.add(c);

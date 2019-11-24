@@ -17,7 +17,7 @@ public class Volvo240 extends Car {
         point = new Point2D.Double(0, 0);
         direction = 'N';
         state = StateEngine.STOPPED;
-        type = Workshop.Type.VOLVO;
+        type = Workshop.typeOfCar.VOLVO;
     }
 
     @Override

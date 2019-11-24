@@ -12,6 +12,7 @@ public abstract class Transport implements Movable {
     protected char direction; // direction of the turning
     protected double truckAngle; // truck angle
     protected Truck.StateEngine state;
+    protected Workshop.typeOfCar type;
 
 
     public enum StateEngine{
@@ -40,6 +41,10 @@ public abstract class Transport implements Movable {
 
     public void setColor(Color clr) {
         color = clr;
+    }
+
+    public Workshop.typeOfCar getType(){
+        return type;
     }
 
     public void startEngine() {

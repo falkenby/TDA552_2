@@ -13,7 +13,6 @@ public abstract class Car extends Transport {
     /* Used protected due to it being used in Volvo240 and Saab95*/
     protected double trimFactor; // How much the engine is trimmed
     protected boolean turboOn; // Turbo-switch
-    protected Workshop.Type type;
 
     public void gas(double amount) {
         if (amount < 0.0 || amount > 1.0) {

@@ -14,6 +14,7 @@ public class Scania extends Truck {
         truckAngle = 0;
         state = StateEngine.STOPPED;
         stateRamp = StateRamp.DOWN;
+        type = Workshop.typeOfCar.SCANIA;
 
     }
 
