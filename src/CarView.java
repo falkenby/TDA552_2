@@ -46,10 +46,10 @@ public class CarView extends JFrame {
 
 
     // Constructor
-     public CarView(String framename, CarController cc) {
+    public CarView(String framename, CarController cc) {
         this.carC = cc;
         drawPanel = new DrawPanel(X, Y - 240, carC);
-         //System.out.print(carC.transports);
+        //System.out.print(carC.transports);
         //this.v = cc.getVehicles();
         initComponents(framename);
     }
@@ -134,14 +134,40 @@ public class CarView extends JFrame {
             }
         });
 
-        startButton.addActionListener(new ActionListener() {
+        stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.startAllCarsEngine();
+                carC.stopAllCarsEngine();
             }
         });
 
+        liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.liftTruckBed(70);
+            }
+        });
 
+        lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.lowerTruckBed(70);
+            }
+        });
+
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOn();
+            }
+        });
+
+        turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOff();
+            }
+        });
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();

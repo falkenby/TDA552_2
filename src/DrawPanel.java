@@ -8,7 +8,7 @@ import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel{
+public class DrawPanel extends JPanel {
 
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
@@ -17,21 +17,6 @@ public class DrawPanel extends JPanel{
     // To keep track of a single cars position
     ArrayList<Transport> vehiclesToDraw;
 
-    // TODO: Make this general for all cars
-    void moveit(){
-        for (Transport t : vehiclesToDraw){
-            t.move();
-        }
-    }
-/*
-    void addList(){
-        Transport Volvo240 = new Volvo240();
-        Transport Saab95 = new Saab95();
-        Transport Scania = new Scania();
-        vehiclesToDraw.add(Volvo240);
-        vehiclesToDraw.add(Saab95);
-        vehiclesToDraw.add(Scania);
-    }*/
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y, CarController cc) {
@@ -50,12 +35,10 @@ public class DrawPanel extends JPanel{
             volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
             saabImage = ImageIO.read(DrawPanel.class.getResource("pics/Saab95.jpg"));
             scaniaImage = ImageIO.read(DrawPanel.class.getResource("pics/Scania.jpg"));
-        } catch (IOException ex)
-        {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
 
-       //addList();
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
@@ -67,13 +50,14 @@ public class DrawPanel extends JPanel{
         for (Transport v : vehiclesToDraw) {
             switch (v.getModelName()) {
                 case "Saab95":
-                    g.drawImage(saabImage, (int) Math.round(v.getPoint().x), (int) Math.round(v.getPoint().y) + 100, null); // see javadoc for more info on the parameters
+                    g.drawImage(saabImage, (int) Math.round(v.getPoint().x), (int) Math.round(v.getPoint().y), null); // see javadoc for more info on the parameters
+
                     break;
                 case "Volvo240":
                     g.drawImage(volvoImage, (int) Math.round(v.getPoint().x), (int) Math.round(v.getPoint().y), null); // see javadoc for more info on the parameters
                     break;
                 case "Scania":
-                    g.drawImage(scaniaImage, (int) Math.round(v.getPoint().x), (int) Math.round(v.getPoint().y) + 200, null); // see javadoc for more info on the parameters
+                    g.drawImage(scaniaImage, (int) Math.round(v.getPoint().x), (int) Math.round(v.getPoint().y), null); // see javadoc for more info on the parameters
                     break;
             }
         }

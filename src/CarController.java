@@ -30,9 +30,15 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
+        Transport saab = new Saab95();
+        Transport scania = new Scania();
+
         cc.transports.add(new Volvo240());
-        cc.transports.add(new Saab95());
-        cc.transports.add(new Scania());
+        cc.transports.add(saab);
+        cc.transports.add(scania);
+
+        saab.getPoint().y += 100;
+        scania.getPoint().y += 200;
 
 
         // Start a new view and send a reference of self
@@ -50,7 +56,7 @@ public class CarController {
             for (Transport t : transports) {
 
 
-                if(isOutOfFrame(t)){
+                if (isOutOfFrame(t)) {
 
                     double speed = t.getCurrentSpeed();
                     t.stopEngine();
@@ -71,16 +77,17 @@ public class CarController {
         }
     }
 
-    public ArrayList<Transport> getVehicles(){
+    public ArrayList<Transport> getVehicles() {
         return transports;
     }
 
     /**
      * A method for changing the direction when the vehicle crashes into the wall
+     *
      * @param vehicle
      */
     private void changeDir(Transport vehicle) {
-        switch (vehicle.getDirection()){
+        switch (vehicle.getDirection()) {
             case 'N':
                 vehicle.direction = 'S';
                 break;
@@ -100,6 +107,7 @@ public class CarController {
 
     /**
      * Checking if a car is out of frame
+     *
      * @param vehicle
      * @return
      */
@@ -130,7 +138,7 @@ public class CarController {
         }
     }
 
-    void brake(int amount){
+    void brake(int amount) {
         double brake = ((double) amount) / 100;
         for (Transport v : transports
         ) {
@@ -138,41 +146,57 @@ public class CarController {
         }
     }
 
-    public void liftTruckBed(double angle){
-        for(Transport t : transports){
-            if(t instanceof Scania){
+    public void liftTruckBed(double angle) {
+        for (Transport t : transports) {
+            if (t instanceof Scania) {
                 ((Scania) t).raiseTruckBed(70);
             }
         }
     }
 
-    public void lowerTruckBed(double angle){
-        for(Transport t : transports){
-            if(t instanceof Scania){
+    public void turboOn() {
+        for (Transport t : transports) {
+            if (t instanceof Saab95) {
+                ((Saab95) t).turboOn = true;
+            }
+        }
+    }
+
+    public void turboOff() {
+        for (Transport t : transports) {
+            if (t instanceof Saab95) {
+                ((Saab95) t).turboOn = false;
+            }
+        }
+    }
+
+    public void lowerTruckBed(double angle) {
+        for (Transport t : transports) {
+            if (t instanceof Scania) {
                 Scania s = (Scania) t;
                 s.lowerTruckBed(angle);
             }
         }
     }
 
-    public void stopAllCarsEngine(){
+    public void stopAllCarsEngine() {
         for (Transport c : transports)
             c.stopEngine();
     }
 
-    public void startAllCarsEngine(){
+    public void startAllCarsEngine() {
         for (Transport c : transports)
             c.startEngine();
     }
 
-    public void turnRight(){
-        for (Transport t : transports){
+    public void turnRight() {
+        for (Transport t : transports) {
             t.turnRight();
         }
     }
 
-    public void turnLeft(){
-        for (Transport t : transports){
+    public void turnLeft() {
+        for (Transport t : transports) {
             t.turnLeft();
         }
     }
