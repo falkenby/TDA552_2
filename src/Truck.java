@@ -45,7 +45,7 @@ public abstract class Truck extends Transport {
             throw new RuntimeException("Cannot move the truck when the truckbed is not in the down position!");
         }
         incrementSpeed(amount);
-        this.state = StateEngine.TRANSPORTING;
+        //this.state = StateEngine.TRANSPORTING;
 
 
     }

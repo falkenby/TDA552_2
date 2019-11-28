@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 
 public abstract class Transport implements Movable {
 
@@ -14,8 +15,14 @@ public abstract class Transport implements Movable {
     protected Truck.StateEngine state;
     protected Workshop.typeOfCar type;
 
+    public Point2D getPosition() {
+        return point;
+    }
 
-    public enum StateEngine{
+
+
+
+    public enum StateEngine {
         STOPPED,
         STARTED,
         TRANSPORTING;
@@ -43,7 +50,11 @@ public abstract class Transport implements Movable {
         color = clr;
     }
 
-    public Workshop.typeOfCar getType(){
+    public String getModelName(){
+        return this.modelName;
+    }
+
+    public Workshop.typeOfCar getType() {
         return type;
     }
 
@@ -115,7 +126,7 @@ public abstract class Transport implements Movable {
     @Override
     public void move() {
 
-        if(this.state == StateEngine.TRANSPORTING){
+        if (this.state == StateEngine.TRANSPORTING) {
             throw new RuntimeException("Cannot move car when its transporting");
         }
 
