@@ -15,7 +15,7 @@ public class Volvo240 extends Car {
         stopEngine();
         trimFactor = 1.25;
         point = new Point2D.Double(0, 0);
-        direction = 'N';
+        direction = 'W';
         state = StateEngine.STOPPED;
         type = Workshop.typeOfCar.VOLVO;
     }

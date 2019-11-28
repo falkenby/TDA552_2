@@ -10,7 +10,7 @@ public class Scania extends Truck {
         modelName = "Scania";
         stopEngine();
         point = new Point2D.Double(0, 0);
-        direction = 'N';
+        direction = 'W';
         truckAngle = 0;
         state = StateEngine.STOPPED;
         stateRamp = StateRamp.DOWN;

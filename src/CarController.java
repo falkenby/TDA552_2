@@ -95,10 +95,10 @@ public class CarController {
                 vehicle.direction = 'N';
                 break;
             case 'E':
-                vehicle.direction = 'E';
+                vehicle.direction = 'W';
                 break;
             case 'W':
-                vehicle.direction = 'W';
+                vehicle.direction = 'E';
                 break;
 
         }
