@@ -1,25 +1,24 @@
+package labb.model;
+
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 public abstract class Transport implements Movable {
 
-    protected int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power of the car
-    protected double currentSpeed; // The current speed of the car
-    protected Color color; // Color of the car
-    protected String modelName; // The car model name
-    protected Point2D.Double point; // Coordinate system in a 2D coordinate system
-    protected char direction; // direction of the turning
-    protected double truckAngle; // truck angle
-    protected Truck.StateEngine state;
-    protected Workshop.typeOfCar type;
+    int nrDoors; // Number of doors on the car
+    double enginePower; // Engine power of the car
+    private double currentSpeed; // The current speed of the car
+    Color color; // Color of the car
+    String modelName; // The car model name
+    Point2D.Double point; // Coordinate system in a 2D coordinate system
+    char direction; // direction of the turning
+    Truck.StateEngine state;
+    Workshop.typeOfCar type;
 
     public Point2D getPosition() {
         return point;
     }
-
-
 
 
     public enum StateEngine {
@@ -46,16 +45,24 @@ public abstract class Transport implements Movable {
         return color;
     }
 
-    public void setColor(Color clr) {
+    protected void setColor(Color clr) {
         color = clr;
     }
 
-    public String getModelName(){
+    public String getModelName() {
         return this.modelName;
     }
 
     public Workshop.typeOfCar getType() {
         return type;
+    }
+
+    public void setCurrentSpeed(double speed) {
+        this.currentSpeed = speed;
+    }
+
+    public void setDirection(char dir) {
+        this.direction = dir;
     }
 
     public void startEngine() {
@@ -79,7 +86,7 @@ public abstract class Transport implements Movable {
     /**
      * Abstract method for speedFactor, because the speedFactor is unique for each car
      */
-    public abstract double speedFactor();
+    protected abstract double speedFactor();
 
     /**
      * Incrementing the speed, is called by gas()

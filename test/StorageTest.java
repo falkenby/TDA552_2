@@ -3,6 +3,7 @@ import org.junit.Test;
 import java.awt.geom.Point2D;
 
 import static org.junit.Assert.*;
+import labb.model.*;
 
 public class StorageTest {
 
@@ -20,7 +21,7 @@ public class StorageTest {
         Workshop workshop = new Workshop(2, Workshop.typeOfCar.VOLVO);
         Volvo240 myCar = new Volvo240();
         workshop.addCar(myCar);
-        assertEquals(workshop.cars.contains(myCar), true);
+        assertEquals(workshop.getCars().contains(myCar), true);
     }
 
     @Test
@@ -29,7 +30,7 @@ public class StorageTest {
         CarTruck truck = new CarTruck(2);
         Volvo240 myCar = new Volvo240();
         truck.addCar(myCar);
-        assertEquals(truck.cars.contains(myCar), true);
+        assertEquals(truck.getCars().contains(myCar), true);
     }
 
     @Test
@@ -40,7 +41,7 @@ public class StorageTest {
         workshop.addCar(myCar);
         Point2D.Double point = new Point2D.Double(2,2);
         workshop.setCarsPosition(point);
-        assertEquals(point, workshop.cars.get(0).point);
+        assertEquals(point, workshop.getCars().get(0).getPoint());
     }
 
     @Test
@@ -50,7 +51,7 @@ public class StorageTest {
         Volvo240 myCar = new Volvo240();
         workshop.addCar(myCar);
         workshop.checkOutCar(0);
-        assertEquals(workshop.cars.isEmpty(), true);
+        assertEquals(workshop.getCars().isEmpty(), true);
     }
 
 }

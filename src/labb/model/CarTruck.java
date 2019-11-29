@@ -1,3 +1,5 @@
+package labb.model;
+
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -5,9 +7,9 @@ import java.util.Collections;
 
 public class CarTruck extends Truck implements Storage {
 
-    protected double storageMax;
-    protected ArrayList<Car> cars;
-    protected Point2D.Double carsPosition;
+    private double storageMax;
+    private ArrayList<Car> cars;
+    private Point2D.Double carsPosition;
 
     public CarTruck(int carMax) {
         nrDoors = 2;
@@ -24,15 +26,17 @@ public class CarTruck extends Truck implements Storage {
 
     }
 
-
-    /**
-     * Returns the current position of the cars,
-     * for the CarTruck class to use
-     *
-     * @return
-     */
+    /* Getters and setters */
     public Point2D.Double getCarsPosition() {
         return carsPosition;
+    }
+
+    public double getStorageMax(){
+        return storageMax;
+    }
+
+    public void setStorageMax(double store){
+        storageMax = store;
     }
 
     /**
@@ -41,7 +45,7 @@ public class CarTruck extends Truck implements Storage {
      * @return
      */
     @Override
-    public double speedFactor() {
+    protected double speedFactor() {
         return enginePower;
     }
 
@@ -52,7 +56,7 @@ public class CarTruck extends Truck implements Storage {
      */
     @Override
     public void raiseTruckBed(double angle) {
-        if (this.currentSpeed > 0) {
+        if (this.getCurrentSpeed() > 0) {
             throw new RuntimeException("Cannot raise truckbed when truck is moving!");
         }
 
@@ -67,8 +71,8 @@ public class CarTruck extends Truck implements Storage {
      */
 
     @Override
-    public void lowerTruckBed(double angle) {
-        if (this.currentSpeed > 0) {
+    protected void lowerTruckBed(double angle) {
+        if (this.getCurrentSpeed() > 0) {
             throw new RuntimeException("Cannot lower truckbed when truck is moving!");
         }
 

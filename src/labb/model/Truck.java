@@ -1,7 +1,9 @@
+package labb.model;
 
 public abstract class Truck extends Transport {
 
-    protected StateRamp stateRamp;
+    StateRamp stateRamp;
+    double truckAngle; // truck angle
 
     public enum StateRamp{
         UP,
@@ -21,7 +23,7 @@ public abstract class Truck extends Transport {
      *
      * @param angle
      */
-    public abstract void raiseTruckBed(double angle);
+    protected abstract void raiseTruckBed(double angle);
 
     /**
      * A method for lowering the truckbed
@@ -29,7 +31,7 @@ public abstract class Truck extends Transport {
      * @param angle
      */
 
-    public abstract void lowerTruckBed(double angle);
+    protected abstract void lowerTruckBed(double angle);
 
     /**
      * Speeding up the car, amount must be between 0 and 1

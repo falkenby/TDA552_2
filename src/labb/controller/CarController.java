@@ -1,8 +1,12 @@
+package labb.controller;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import labb.model.*;
+import labb.view.CarView;
 
 /*
  * This class represents the Controller part in the MVC pattern.
@@ -22,7 +26,7 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Transport> transports = new ArrayList<>();
+    public ArrayList<Transport> transports = new ArrayList<>();
 
     //methods:
 
@@ -62,23 +66,14 @@ public class CarController {
                     t.stopEngine();
                     changeDir(t);
                     t.startEngine();
-                    t.currentSpeed = speed;
+                    t.setCurrentSpeed(speed);
                 }
 
                 t.move();
 
-                /*
-                int x = (int) Math.round(t.getPosition().getX());
-                int y = (int) Math.round(t.getPosition().getY());*/
-                //frame.drawPanel.vehiclesToDraw.add(t);
-                // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
         }
-    }
-
-    public ArrayList<Transport> getVehicles() {
-        return transports;
     }
 
     /**
@@ -89,16 +84,16 @@ public class CarController {
     private void changeDir(Transport vehicle) {
         switch (vehicle.getDirection()) {
             case 'N':
-                vehicle.direction = 'S';
+                vehicle.setDirection('S');
                 break;
             case 'S':
-                vehicle.direction = 'N';
+                vehicle.setDirection('N');
                 break;
             case 'E':
-                vehicle.direction = 'W';
+                vehicle.setDirection('W');
                 break;
             case 'W':
-                vehicle.direction = 'E';
+                vehicle.setDirection('E');
                 break;
 
         }
@@ -129,8 +124,13 @@ public class CarController {
 
     }
 
-    // Calls the gas method for each car once
-    void gas(int amount) {
+    /**
+     * Each of the methods below go through the all vehicles once and calls for the respective method
+     * The different methods are:
+     * gas, brake, liftTruckBed, lowerTruckBed, turnTurboOn, turnTurboOff,
+     * startAllCars, stopAllCars, turnRight, turnLeft
+     */
+    public void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (Transport v : transports
         ) {
@@ -138,7 +138,8 @@ public class CarController {
         }
     }
 
-    void brake(int amount) {
+
+    public void brake(int amount) {
         double brake = ((double) amount) / 100;
         for (Transport v : transports
         ) {
@@ -157,7 +158,7 @@ public class CarController {
     public void turboOn() {
         for (Transport t : transports) {
             if (t instanceof Saab95) {
-                ((Saab95) t).turboOn = true;
+                ((Saab95) t).turnTurboOn();
             }
         }
     }
@@ -165,7 +166,7 @@ public class CarController {
     public void turboOff() {
         for (Transport t : transports) {
             if (t instanceof Saab95) {
-                ((Saab95) t).turboOn = false;
+                ((Saab95) t).turnTurboOff();
             }
         }
     }

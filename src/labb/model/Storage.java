@@ -1,4 +1,4 @@
-import java.awt.geom.Point2D;
+package labb.model;
 
 public interface Storage {
 

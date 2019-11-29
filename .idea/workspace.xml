@@ -2,13 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d2aa1fd-55e3-4854-ad81-dfc676cab583" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/CarTruck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/Movable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/Saab95.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/Scania.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/Storage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/Transport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/Truck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/Volvo240.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/Workshop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/pics/Saab95.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/pics/Scania.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/pics/Volvo240.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laboration-2.plantuml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Saab95.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Saab95.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scania.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scania.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Volvo240.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Volvo240.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src.plantuml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/Saab95.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/Scania.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/Volvo240.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/controller/CarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CarTruck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/view/CarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/view/DrawPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Movable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Saab95.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scania.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Storage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Transport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Truck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Volvo240.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Workshop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pics/Saab95.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pics/Scania.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pics/Volvo240.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CarTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CarTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/StorageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/StorageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TruckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TruckTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +64,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultPlantUmlFileTemplate" value="UML MindMap" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
@@ -48,9 +79,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CarController">
+  <component name="RunManager" selected="Application.CarController (1)">
+    <configuration name="CarController (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="labb.controller.CarController" />
+      <module name="DIT953-lab1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="labb.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CarController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CarController" />
+      <option name="MAIN_CLASS_NAME" value="controller.CarController" />
       <module name="DIT953-lab1" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -66,6 +110,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CarController (1)" />
         <item itemvalue="Application.CarController" />
         <item itemvalue="JUnit.All in DIT953-lab1" />
       </list>

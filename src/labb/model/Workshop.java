@@ -1,3 +1,5 @@
+package labb.model;
+
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
@@ -91,7 +93,7 @@ public class Workshop implements Storage {
      * @param point
      */
 
-    protected void setCarsPosition(Point2D.Double point) {
+    public void setCarsPosition(Point2D.Double point) {
 
         for (Car c : getCars()) {
             c.point.setLocation(point);

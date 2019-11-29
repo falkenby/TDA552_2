@@ -1,3 +1,5 @@
+package labb.model;
+
 import java.awt.*;
 import java.awt.geom.Point2D;
 
@@ -21,7 +23,7 @@ public class Volvo240 extends Car {
     }
 
     @Override
-    public double speedFactor() {
+    protected double speedFactor() {
         return enginePower * 0.01 * trimFactor;
     }
 

@@ -1,3 +1,5 @@
+package labb.model;
+
 import java.awt.*;
 import java.awt.geom.Point2D;
 

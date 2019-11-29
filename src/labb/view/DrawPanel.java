@@ -1,3 +1,8 @@
+package labb.view;
+
+import labb.controller.CarController;
+import labb.model.Transport;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -32,9 +37,9 @@ public class DrawPanel extends JPanel {
 
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
-            volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
-            saabImage = ImageIO.read(DrawPanel.class.getResource("pics/Saab95.jpg"));
-            scaniaImage = ImageIO.read(DrawPanel.class.getResource("pics/Scania.jpg"));
+            volvoImage = ImageIO.read(new File("./src/labb/pics/Volvo240.jpg"));
+            saabImage = ImageIO.read(new File("./src/labb/pics/Saab95.jpg"));
+            scaniaImage = ImageIO.read(new File("./src/labb/pics/Scania.jpg"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -42,7 +47,6 @@ public class DrawPanel extends JPanel {
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
-    // TODO: Change to suit your needs.
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

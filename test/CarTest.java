@@ -3,6 +3,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+import labb.model.*;
+
 public class CarTest {
 
     @Test
@@ -112,8 +114,8 @@ public class CarTest {
         myCar.startEngine();
         myCar.move();
         assertEquals(myCar.getDirection(), 'N');
-        assertEquals(myCar.point.getX(), 0.0, 0.000001);
-        assertEquals(myCar.point.getY(), 0.1, 0.000001);
+        assertEquals(myCar.getPoint().getX(), 0.0, 0.000001);
+        assertEquals(myCar.getPoint().getY(), 0.1, 0.000001);
     }
 
     @Test
@@ -141,8 +143,8 @@ public class CarTest {
         myCar.startEngine();
         myCar.move();
         assertEquals(myCar.getDirection(), 'N');
-        assertEquals(myCar.point.getX(), 0.0, 0.000001);
-        assertEquals(myCar.point.getY(), 0.1, 0.000001);
+        assertEquals(myCar.getPoint().getX(), 0.0, 0.000001);
+        assertEquals(myCar.getPoint().getY(), 0.1, 0.000001);
     }
 
     @Test

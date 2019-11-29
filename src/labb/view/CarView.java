@@ -1,10 +1,18 @@
+package labb.view;
+
+import labb.controller.CarController;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import labb.controller.CarController;
+import labb.model.Transport;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -22,9 +30,10 @@ public class CarView extends JFrame {
     CarController carC;
     ArrayList<Transport> v;
 
-    DrawPanel drawPanel;
+    public DrawPanel drawPanel;
 
     JPanel controlPanel = new JPanel();
+    JPanel speedPanel = new JPanel();
 
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
@@ -45,14 +54,13 @@ public class CarView extends JFrame {
     JButton removeCarButton = new JButton("Remove a car");
 
 
-    // Constructor
+    // Constructor that also sets the new drawpanel, this is done to include the transports list
     public CarView(String framename, CarController cc) {
         this.carC = cc;
-        drawPanel = new DrawPanel(X, Y - 240, carC);
-        //System.out.print(carC.transports);
-        //this.v = cc.getVehicles();
+        drawPanel = new DrawPanel(X, Y - 240, cc);
         initComponents(framename);
     }
+
 
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
@@ -100,6 +108,12 @@ public class CarView extends JFrame {
         controlPanel.setBackground(Color.CYAN);
 
 
+        speedPanel.setLayout(new GridLayout(2, carC.transports.size()));
+
+       // newLabels();
+        //this.add(speedPanel);
+
+
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
         startButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
@@ -111,12 +125,14 @@ public class CarView extends JFrame {
         stopButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
         this.add(stopButton);
 
-        // This actionListener is for the gas button only
-        // TODO: Create more for each component as necessary
+        /**
+         * ActionListeners for all the different buttons
+         */
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.gas(gasAmount);
+                newLabels();
             }
         });
 
@@ -131,6 +147,7 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.startAllCarsEngine();
+                newLabels();
             }
         });
 
@@ -169,6 +186,7 @@ public class CarView extends JFrame {
             }
         });
 
+
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
 
@@ -180,6 +198,14 @@ public class CarView extends JFrame {
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void newLabels(){
+        for (Transport v : carC.transports
+        ) {
+            speedPanel.add(new JLabel(v.getModelName()), 0);
+            speedPanel.add(new JLabel(String.valueOf(v.getCurrentSpeed())), 1);
+        }
     }
 
     public JButton getGasButton() {
