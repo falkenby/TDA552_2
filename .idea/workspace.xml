@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d2aa1fd-55e3-4854-ad81-dfc676cab583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/labb/controller/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/labb/model/ModelWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labb/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/controller/CarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labb/labb2_partA_UMF_ING_L.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/labb2_partA_UMF_ING_L.mdj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labb/view/CarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/view/CarView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labb/view/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/view/DrawPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labb/view/SpeedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/view/SpeedPanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
