@@ -33,7 +33,7 @@ public abstract class Transport implements Movable {
     }
 
     public double getCurrentSpeed() {
-        return this.currentSpeed;
+        return currentSpeed;
     }
 
     public Color getColor() {

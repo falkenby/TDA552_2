@@ -35,23 +35,9 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        /*
-        Transport saab = new Saab95();
-        Transport scania = new Scania();
-
-        cc.transports.add(new Volvo240());
-        cc.transports.add(saab);
-        cc.transports.add(scania);
-
-
-
-        saab.getPoint().y += 100;
-        scania.getPoint().y += 200;
-         */
-
-        cc.transports.add(VehicleFactory.buildCar(CarType.VOLVO));
-        cc.transports.add(VehicleFactory.buildCar(CarType.SAAB));
-        cc.transports.add(VehicleFactory.buildCar(CarType.SCANIA));
+        cc.transports.add(VehicleFactory.buildVolvo());
+        cc.transports.add(VehicleFactory.buildSaab());
+        cc.transports.add(VehicleFactory.buildScania());
 
 
         // Start a new view and send a reference of self
@@ -84,15 +70,6 @@ public class CarController {
             }
         }
     }
-/*
-    /**
-     * Adding a car to the frame
-
-
-    public void addCar() {
-        transports.add(new Volvo240());
-        frame.drawPanel.repaint();
-    }*/
 
     /**
      * A method for changing the direction when the vehicle crashes into the wall

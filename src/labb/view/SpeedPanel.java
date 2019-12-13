@@ -10,20 +10,27 @@ public class SpeedPanel extends JPanel {
 
     String modelName;
     double modelSpeed;
-    //JLabel car = new JLabel(modelName + " " + modelSpeed);
-    GridBagConstraints gc = new GridBagConstraints();
+    JLabel car;
 
-    public void newLabels(CarController carC, DrawPanel drawPanel) {
+
+    public SpeedPanel(int x, int y, CarController carC) {
+        this.setDoubleBuffered(true);
+        this.setPreferredSize(new Dimension(x, y));
+        this.setOpaque(false);
+        newLabels(carC);
+    }
+
+    public void newLabels(CarController carC) {
         for (Transport v : carC.transports) {
-            System.out.println("hej");
+
             modelName = v.getModelName();
             modelSpeed = v.getCurrentSpeed();
 
-            JLabel car = new JLabel(modelName + " " + modelSpeed);
-           // this.getComponents();
+            car = new JLabel(modelName + " " + modelSpeed);
             this.add(car);
-
+            this.revalidate();
         }
-        drawPanel.repaint();
+        this.repaint();
     }
+
 }

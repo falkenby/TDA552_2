@@ -58,7 +58,7 @@ public class CarView extends JFrame {
     public CarView(String framename, CarController cc) {
         this.carC = cc;
         drawPanel = new DrawPanel(X, Y - 240, cc);
-        speedPanel = new SpeedPanel();
+        speedPanel = new SpeedPanel(X-700, Y, cc);
         initComponents(framename);
     }
 
@@ -108,7 +108,8 @@ public class CarView extends JFrame {
         controlPanel.setBackground(Color.CYAN);
 
 
-        this.add(speedPanel);
+        //this.add(speedPanel);
+        drawPanel.add(speedPanel);
 
 
         startButton.setBackground(Color.blue);
@@ -122,38 +123,43 @@ public class CarView extends JFrame {
         stopButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
         this.add(stopButton);
 
+
         /**
          * ActionListeners for all the different buttons
          */
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                speedPanel.removeAll();
                 carC.gas(gasAmount);
-                speedPanel.newLabels(carC, drawPanel);
+                speedPanel.newLabels(carC);
             }
         });
 
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                speedPanel.removeAll();
                 carC.brake(gasAmount);
-                speedPanel.newLabels(carC, drawPanel);
+                speedPanel.newLabels(carC);
             }
         });
 
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                speedPanel.removeAll();
                 carC.startAllCarsEngine();
-                speedPanel.newLabels(carC, drawPanel);
+                speedPanel.newLabels(carC);
             }
         });
 
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                speedPanel.removeAll();
                 carC.stopAllCarsEngine();
-                speedPanel.newLabels(carC, drawPanel);
+                speedPanel.newLabels(carC);
             }
         });
 
@@ -189,8 +195,10 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (carC.transports.size() != 10) {
-                    carC.transports.add(VehicleFactory.buildCar(CarType.VOLVO));
+                    speedPanel.removeAll();
+                    carC.transports.add(VehicleFactory.buildVolvo());
                     carC.transports.get(carC.transports.size() - 1).startEngine();
+                    speedPanel.newLabels(carC);
                     drawPanel.repaint();
                 }
             }
@@ -200,7 +208,9 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!carC.transports.isEmpty()) {
+                    speedPanel.removeAll();
                     carC.transports.remove(carC.transports.size() - 1);
+                    speedPanel.newLabels(carC);
                     drawPanel.repaint();
                 }
             }
