@@ -13,19 +13,14 @@ public abstract class Transport implements Movable {
     String modelName; // The car model name
     Point2D.Double point; // Coordinate system in a 2D coordinate system
     char direction; // direction of the turning
-    Truck.StateEngine state;
-    Workshop.typeOfCar type;
+    StateEngine state;
+    CarType type;
 
     public Point2D getPosition() {
         return point;
     }
 
 
-    public enum StateEngine {
-        STOPPED,
-        STARTED,
-        TRANSPORTING;
-    }
 
     /* Getters and Setters*/
 
@@ -45,7 +40,7 @@ public abstract class Transport implements Movable {
         return color;
     }
 
-    protected void setColor(Color clr) {
+    public void setColor(Color clr) {
         color = clr;
     }
 
@@ -53,7 +48,7 @@ public abstract class Transport implements Movable {
         return this.modelName;
     }
 
-    public Workshop.typeOfCar getType() {
+    public CarType getType() {
         return type;
     }
 

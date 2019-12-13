@@ -9,6 +9,8 @@ import java.awt.geom.Point2D;
  */
 public class Volvo240 extends Car {
 
+    double trimFactor; // How much the engine is trimmed
+
     public Volvo240() {
         nrDoors = 4;
         color = Color.black;
@@ -19,7 +21,7 @@ public class Volvo240 extends Car {
         point = new Point2D.Double(0, 0);
         direction = 'W';
         state = StateEngine.STOPPED;
-        type = Workshop.typeOfCar.VOLVO;
+        type = CarType.VOLVO;
     }
 
     @Override

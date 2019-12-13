@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+
 import labb.model.*;
 import labb.view.CarView;
 
@@ -34,6 +35,7 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
+        /*
         Transport saab = new Saab95();
         Transport scania = new Scania();
 
@@ -41,8 +43,15 @@ public class CarController {
         cc.transports.add(saab);
         cc.transports.add(scania);
 
+
+
         saab.getPoint().y += 100;
         scania.getPoint().y += 200;
+         */
+
+        cc.transports.add(VehicleFactory.buildCar(CarType.VOLVO));
+        cc.transports.add(VehicleFactory.buildCar(CarType.SAAB));
+        cc.transports.add(VehicleFactory.buildCar(CarType.SCANIA));
 
 
         // Start a new view and send a reference of self
@@ -75,6 +84,15 @@ public class CarController {
             }
         }
     }
+/*
+    /**
+     * Adding a car to the frame
+
+
+    public void addCar() {
+        transports.add(new Volvo240());
+        frame.drawPanel.repaint();
+    }*/
 
     /**
      * A method for changing the direction when the vehicle crashes into the wall

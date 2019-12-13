@@ -10,7 +10,7 @@ public class StorageTest {
     @Test(expected = RuntimeException.class)
     public void addCarError() {
 
-        Workshop workshop = new Workshop(2, Workshop.typeOfCar.SAAB);
+        Workshop workshop = new Workshop(2, CarType.SAAB);
         Volvo240 myCar = new Volvo240();
         workshop.addCar(myCar);
     }
@@ -18,7 +18,7 @@ public class StorageTest {
     @Test
     public void addCarWorkshop() {
 
-        Workshop workshop = new Workshop(2, Workshop.typeOfCar.VOLVO);
+        Workshop workshop = new Workshop(2, CarType.VOLVO);
         Volvo240 myCar = new Volvo240();
         workshop.addCar(myCar);
         assertEquals(workshop.getCars().contains(myCar), true);
@@ -36,7 +36,7 @@ public class StorageTest {
     @Test
     public void setCarPosition(){
 
-        Workshop workshop = new Workshop(2, Workshop.typeOfCar.VOLVO);
+        Workshop workshop = new Workshop(2, CarType.VOLVO);
         Volvo240 myCar = new Volvo240();
         workshop.addCar(myCar);
         Point2D.Double point = new Point2D.Double(2,2);
@@ -47,7 +47,7 @@ public class StorageTest {
     @Test
     public void checkOutCar() {
 
-        Workshop workshop = new Workshop(2, Workshop.typeOfCar.VOLVO);
+        Workshop workshop = new Workshop(2, CarType.VOLVO);
         Volvo240 myCar = new Volvo240();
         workshop.addCar(myCar);
         workshop.checkOutCar(0);

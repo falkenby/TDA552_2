@@ -9,6 +9,8 @@ import java.awt.geom.Point2D;
  */
 public class Saab95 extends Car {
 
+    boolean turboOn; // Turbo-switch
+
     public Saab95() {
         nrDoors = 2;
         color = Color.red;
@@ -19,7 +21,7 @@ public class Saab95 extends Car {
         point = new Point2D.Double(0, 0);
         direction = 'W';
         state = StateEngine.STOPPED;
-        type = Workshop.typeOfCar.SAAB;
+        type = CarType.SAAB;
     }
 
     @Override

@@ -7,28 +7,18 @@ public class Workshop implements Storage {
 
     private int storageMax; // Storage max of the workshop
     protected ArrayList<Car> cars; // An array for the cars to be in
-    private typeOfCar carType; // To make it easier for the workshop to identify the different cars
+    private CarType carType; // To make it easier for the workshop to identify the different cars
 
     /**
      * A constructor to initialize the workshop
      * @param storageMax
      * @param carType
      */
-    public Workshop(int storageMax, typeOfCar carType) {
+    public Workshop(int storageMax, CarType carType) {
 
         this.storageMax = storageMax;
         this.cars = new ArrayList<Car>(storageMax);
         this.carType = carType;
-    }
-
-    /**
-     * An enum method for the different cars
-     */
-    public enum typeOfCar {
-        VOLVO,
-        SAAB,
-        SCANIA,
-        ALL;
     }
 
     /* Getter for the car */
@@ -53,23 +43,23 @@ public class Workshop implements Storage {
             case ALL:
                 cars.add(c);
                 c.stopEngine();
-                c.state = Transport.StateEngine.TRANSPORTING;
+                c.state = StateEngine.TRANSPORTING;
                 break;
             case SAAB:
-                if (c.type != typeOfCar.SAAB) {
+                if (c.type != CarType.SAAB) {
                     throw new RuntimeException("Sorry! This workshop only accepts SAAB cars!");
                 }
                 cars.add(c);
                 c.stopEngine();
-                c.state = Transport.StateEngine.TRANSPORTING;
+                c.state = StateEngine.TRANSPORTING;
                 break;
             case VOLVO:
-                if (c.type != typeOfCar.VOLVO) {
+                if (c.type != CarType.VOLVO) {
                     throw new RuntimeException("Sorry! This workshop only accepts VOLVO cars!");
                 }
                 cars.add(c);
                 c.stopEngine();
-                c.state = Transport.StateEngine.TRANSPORTING;
+                c.state = StateEngine.TRANSPORTING;
                 break;
         }
 

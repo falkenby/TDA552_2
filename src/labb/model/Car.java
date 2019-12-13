@@ -8,10 +8,6 @@ package labb.model;
 
 public abstract class Car extends Transport {
 
-    /* Used protected due to it being used in Volvo240 and Saab95*/
-    double trimFactor; // How much the engine is trimmed
-    boolean turboOn; // Turbo-switch
-
     public void gas(double amount) {
         if (amount < 0.0 || amount > 1.0) {
             throw new RuntimeException("The gas can't go above 1 nor below 0");

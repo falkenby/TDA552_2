@@ -12,7 +12,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import labb.controller.CarController;
+import labb.model.CarType;
 import labb.model.Transport;
+import labb.model.VehicleFactory;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -28,12 +30,10 @@ public class CarView extends JFrame {
 
     // The controller member
     CarController carC;
-    ArrayList<Transport> v;
 
     public DrawPanel drawPanel;
 
     JPanel controlPanel = new JPanel();
-    JPanel speedPanel = new JPanel();
 
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
@@ -52,12 +52,13 @@ public class CarView extends JFrame {
 
     JButton addCarButton = new JButton("Add a car");
     JButton removeCarButton = new JButton("Remove a car");
-
+    private SpeedPanel speedPanel;
 
     // Constructor that also sets the new drawpanel, this is done to include the transports list
     public CarView(String framename, CarController cc) {
         this.carC = cc;
         drawPanel = new DrawPanel(X, Y - 240, cc);
+        speedPanel = new SpeedPanel();
         initComponents(framename);
     }
 
@@ -91,7 +92,6 @@ public class CarView extends JFrame {
 
 
         this.add(gasPanel);
-        // this.add(brakeButton);
 
         controlPanel.setLayout(new GridLayout(2, 4));
 
@@ -108,10 +108,7 @@ public class CarView extends JFrame {
         controlPanel.setBackground(Color.CYAN);
 
 
-        speedPanel.setLayout(new GridLayout(2, carC.transports.size()));
-
-       // newLabels();
-        //this.add(speedPanel);
+        this.add(speedPanel);
 
 
         startButton.setBackground(Color.blue);
@@ -132,7 +129,7 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.gas(gasAmount);
-                newLabels();
+                speedPanel.newLabels(carC, drawPanel);
             }
         });
 
@@ -140,6 +137,7 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.brake(gasAmount);
+                speedPanel.newLabels(carC, drawPanel);
             }
         });
 
@@ -147,7 +145,7 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.startAllCarsEngine();
-                newLabels();
+                speedPanel.newLabels(carC, drawPanel);
             }
         });
 
@@ -155,6 +153,7 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.stopAllCarsEngine();
+                speedPanel.newLabels(carC, drawPanel);
             }
         });
 
@@ -186,6 +185,27 @@ public class CarView extends JFrame {
             }
         });
 
+        addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (carC.transports.size() != 10) {
+                    carC.transports.add(VehicleFactory.buildCar(CarType.VOLVO));
+                    carC.transports.get(carC.transports.size() - 1).startEngine();
+                    drawPanel.repaint();
+                }
+            }
+        });
+
+        removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!carC.transports.isEmpty()) {
+                    carC.transports.remove(carC.transports.size() - 1);
+                    drawPanel.repaint();
+                }
+            }
+        });
+
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
@@ -198,14 +218,6 @@ public class CarView extends JFrame {
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    public void newLabels(){
-        for (Transport v : carC.transports
-        ) {
-            speedPanel.add(new JLabel(v.getModelName()), 0);
-            speedPanel.add(new JLabel(String.valueOf(v.getCurrentSpeed())), 1);
-        }
     }
 
     public JButton getGasButton() {

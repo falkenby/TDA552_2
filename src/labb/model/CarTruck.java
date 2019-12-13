@@ -9,7 +9,6 @@ public class CarTruck extends Truck implements Storage {
 
     private double storageMax;
     private ArrayList<Car> cars;
-    private Point2D.Double carsPosition;
 
     public CarTruck(int carMax) {
         nrDoors = 2;
@@ -27,9 +26,6 @@ public class CarTruck extends Truck implements Storage {
     }
 
     /* Getters and setters */
-    public Point2D.Double getCarsPosition() {
-        return carsPosition;
-    }
 
     public double getStorageMax(){
         return storageMax;
