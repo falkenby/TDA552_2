@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d2aa1fd-55e3-4854-ad81-dfc676cab583" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/labb/controller/MainApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labb/model/ModelWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/labb/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/controller/CarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/labb/labb2_partA_UMF_ING_L.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/labb2_partA_UMF_ING_L.mdj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labb/model/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/model/Transport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labb/model/VehicleFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/model/VehicleFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/labb/view/CarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/view/CarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/labb/view/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/view/DrawPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/labb/view/SpeedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labb/view/SpeedPanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +22,8 @@
       <list>
         <option value="UML Class" />
         <option value="UML MindMap" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,9 +51,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CarController (1)">
-    <configuration name="CarController (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="labb.controller.CarController" />
+  <component name="RunManager" selected="Application.MainApplication">
+    <configuration name="CarController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controller.CarController" />
+      <module name="DIT953-lab1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="labb.controller.MainApplication" />
       <module name="DIT953-lab1" />
       <extension name="coverage">
         <pattern>
@@ -60,13 +68,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CarController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controller.CarController" />
-      <module name="DIT953-lab1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -79,9 +80,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.CarController" />
+      <item itemvalue="Application.MainApplication" />
+      <item itemvalue="JUnit.All in DIT953-lab1" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CarController (1)" />
+        <item itemvalue="Application.MainApplication" />
         <item itemvalue="Application.CarController" />
         <item itemvalue="JUnit.All in DIT953-lab1" />
       </list>

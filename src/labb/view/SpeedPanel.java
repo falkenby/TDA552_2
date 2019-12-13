@@ -1,6 +1,7 @@
 package labb.view;
 
 import labb.controller.CarController;
+import labb.model.ModelWorld;
 import labb.model.Transport;
 
 import javax.swing.*;
@@ -13,15 +14,15 @@ public class SpeedPanel extends JPanel {
     JLabel car;
 
 
-    public SpeedPanel(int x, int y, CarController carC) {
+    public SpeedPanel(int x, int y, ModelWorld model) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setOpaque(false);
-        newLabels(carC);
+        newLabels(model);
     }
 
-    public void newLabels(CarController carC) {
-        for (Transport v : carC.transports) {
+    public void newLabels(ModelWorld model) {
+        for (Transport v : model.transports) {
 
             modelName = v.getModelName();
             modelSpeed = v.getCurrentSpeed();

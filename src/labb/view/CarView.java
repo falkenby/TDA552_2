@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import labb.controller.CarController;
 import labb.model.CarType;
+import labb.model.ModelWorld;
 import labb.model.Transport;
 import labb.model.VehicleFactory;
 
@@ -25,11 +26,14 @@ import labb.model.VehicleFactory;
  **/
 
 public class CarView extends JFrame {
+
     private static final int X = 800;
     private static final int Y = 800;
 
+
     // The controller member
     CarController carC;
+    ModelWorld model;
 
     public DrawPanel drawPanel;
 
@@ -55,10 +59,11 @@ public class CarView extends JFrame {
     private SpeedPanel speedPanel;
 
     // Constructor that also sets the new drawpanel, this is done to include the transports list
-    public CarView(String framename, CarController cc) {
+    public CarView(String framename, CarController cc, ModelWorld model) {
         this.carC = cc;
-        drawPanel = new DrawPanel(X, Y - 240, cc);
-        speedPanel = new SpeedPanel(X-700, Y, cc);
+        drawPanel = new DrawPanel(X, Y - 240, model);
+        speedPanel = new SpeedPanel(X-700, Y, model);
+        this.model = model;
         initComponents(framename);
     }
 
@@ -132,7 +137,7 @@ public class CarView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 speedPanel.removeAll();
                 carC.gas(gasAmount);
-                speedPanel.newLabels(carC);
+                speedPanel.newLabels(model);
             }
         });
 
@@ -141,7 +146,7 @@ public class CarView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 speedPanel.removeAll();
                 carC.brake(gasAmount);
-                speedPanel.newLabels(carC);
+                speedPanel.newLabels(model);
             }
         });
 
@@ -150,7 +155,7 @@ public class CarView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 speedPanel.removeAll();
                 carC.startAllCarsEngine();
-                speedPanel.newLabels(carC);
+                speedPanel.newLabels(model);
             }
         });
 
@@ -159,7 +164,7 @@ public class CarView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 speedPanel.removeAll();
                 carC.stopAllCarsEngine();
-                speedPanel.newLabels(carC);
+                speedPanel.newLabels(model);
             }
         });
 
@@ -194,11 +199,11 @@ public class CarView extends JFrame {
         addCarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (carC.transports.size() != 10) {
+                if (model.transports.size() != 10) {
                     speedPanel.removeAll();
-                    carC.transports.add(VehicleFactory.buildVolvo());
-                    carC.transports.get(carC.transports.size() - 1).startEngine();
-                    speedPanel.newLabels(carC);
+                    model.transports.add(VehicleFactory.buildVolvo());
+                    model.transports.get(model.transports.size() - 1).startEngine();
+                    speedPanel.newLabels(model);
                     drawPanel.repaint();
                 }
             }
@@ -207,10 +212,10 @@ public class CarView extends JFrame {
         removeCarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!carC.transports.isEmpty()) {
+                if (!model.transports.isEmpty()) {
                     speedPanel.removeAll();
-                    carC.transports.remove(carC.transports.size() - 1);
-                    speedPanel.newLabels(carC);
+                    model.transports.remove(model.transports.size() - 1);
+                    speedPanel.newLabels(model);
                     drawPanel.repaint();
                 }
             }

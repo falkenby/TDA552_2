@@ -1,6 +1,7 @@
 package labb.view;
 
 import labb.controller.CarController;
+import labb.model.ModelWorld;
 import labb.model.Transport;
 
 import java.awt.*;
@@ -24,11 +25,11 @@ public class DrawPanel extends JPanel {
 
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y, CarController cc) {
+    public DrawPanel(int x, int y, ModelWorld model) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
-        this.vehiclesToDraw = cc.transports;
+        this.vehiclesToDraw = model.transports;
         // Print an error message in case file is not found with a try/catch block
         try {
             // You can remove the "pics" part if running outside of IntelliJ and
